@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+<!DOCTYPE html>
+<html>
+
+	<body>
+	
+		{% block content %}
+		
+		<div class="container-fluid">
+			<div class="row">
+				
+				<div class="main col-md-12 col-lg-12 col-xs-12 col-sm-12" >
+					<article class="content">
+						<h1>用户注册</h1>
+						 <div class="body">
+							<form action="" method="">
+								
+							<div class="form-group">
+								<label for="name">姓名:</label>
+								<input class="form-control" type="text" name="name" id="name" value="" placeholder="请填写你的姓名" />
+							</div>
+							
+							<div class="form-group">
+								<label for="username">用户名:</label>
+								<input class="form-control"type="text" name="username" id="username" placeholder="请填写您的用户名" />
+							</div>
+							<div class="form-group">
+								<label for="password">密码:</label>
+								<input class="form-control"type="password" name="password" id="password" placeholder="设置一个密码"/>
+							</div>
+							<div class="form-group">
+								<label for="confirmpassword">确认密码:</label>
+								<input class="form-control" type="password" name="confirmpassword" id="confirmpassword" placeholder="请确认您的密码" />
+							</div>
+							<div class="form-group">
+								<label class="radio-inline">
+									<input  type="radio" name="sex" id="sex1" value="0" />女
+								</label>
+								<label class="radio-inline">
+									<input type="radio" name="sex" id="sex2" value="1" />男
+								</label>
+							</div>
+							<div class="form-group">
+								<label class="checkbox-inline">
+									<input type="checkbox" name="like" id="like1" value="睡觉" />睡觉
+								</label>
+								<label class="checkbox-inline">
+									<input type="checkbox" name="like" id="like1" value="旅游" />旅游
+								</label>
+								<label class="checkbox-inline">
+									<input type="checkbox" name="like" id="like1" value="看书" />看书
+								</label>
+								<label class="checkbox-inline">
+									<input type="checkbox" name="like" id="like1" value="唱歌" />唱歌
+								</label>
+							</div>
+							<div class="form-group">
+							<select>
+								<option value ="">请选择城市</option>
+								<option value ="010">北京</option>
+								<option value ="021">上海</option>
+								<option value ="0512">苏州</option>
+							</select>
+							</div>
+							<div class="form-group">
+							<textarea rows="5" cols="10" class="form-control" >
+								填写简介，好给你介绍对象
+							</textarea>
+							</div>
+							<div class="form-group">
+							<input class="btn" type="submit" name="submit" id="btn1" value="立即注册" />
+							<input class="btn" type="reset" name="reset" id="btn2" value="重设" />
+							</div>
+							</form>
+						 </div>
+					</article>
+				</div>
+			</div>
+		</div>
+	{%  endblock %}
+	</body>
+</html>

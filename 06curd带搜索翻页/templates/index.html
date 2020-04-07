@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+<!DOCTYPE html>
+<html>
+
+	<body>
+
+{% block content %}
+
+		<!-- 面包屑导航 -->
+<ul class="breadcrumb">
+			<li><a href="">平哥编程</a></li>
+			<li><a href="">技术文章</a></li>
+			<li><a href="">Python编程</a></li>
+			<li class="active">异步模块</li>
+		</ul>
+		<!-- 分页导航 -->
+		
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-2 hidden-xs hidden-sm">
+					<ul class="nav nav-pills  " id="left_menu">
+						<li class="active"><a href="">标准模块</a></li>
+							
+						<li ><a href="#" data-toggle="dropdown">
+										socket编程
+									   
+								</a>
+									
+						</li>
+						<li><a href="">异步编程</a></li>
+						<li><a href="">并发编程</a></li>
+					</ul>
+				</div>
+				<div class="col-md-6">
+					<!-- 媒体列表 -->
+					<ul class="media-list">
+                        {% for news in newsLists %}
+
+                         <li class="media">
+							<a href="" class="pull-left">
+								<img src="img/1.jpeg"  class="media-object">
+							</a>
+							<div class="media-body">
+								<h4 class="media-heading">{{ news.title }}</h4>
+								<div class="media">
+									<p>{{ news['intro'] }}</p>
+
+								</div>
+							</div>
+						</li>
+
+					    {% endfor %}
+
+
+					</ul>
+					<!--  -->
+					<ul class="pagination">
+						<li><a href="?page=1">前一页</a></li>
+						<li><a href="?page=1" >1</a></li>
+						<li class="active"><a href="?page=2" >2</a></li>
+						<li><a href="?page=3" >3</a></li>
+						<li><a href="?page=4">后一页</a></li>
+					</ul>
+				</div>
+				<div class="col-md-4">
+					<div class="hot_articles">
+						<h5>热门文章</h5>	
+						<ul class="list-group">
+							<li class="list-group-item">
+								如何扫描端口
+							    <span class="badge">100000</span>
+							</li>
+							<li class="list-group-item">
+								websocket服务器实现
+								<span class="badge">100000</span>
+								</li>
+							<li class="list-group-item">
+								什么是xss攻击
+								<span class="badge">100000</span>
+							</li>
+						</ul>
+					</div>
+					<div class="new_articles">
+						<h5>最新文章</h5>	
+						<ul class="list-group">
+							<li class="list-group-item">
+								如何治疗脱发
+							    <span class="badge">100000</span>
+							</li>
+							<li class="list-group-item">
+								颈椎家庭治疗法
+								<span class="badge">100000</span>
+								</li>
+							<li class="list-group-item">
+								<h6 class="list-group-item-heading">肩周炎到底能不能好</h6>
+								<p class="list-group-item-text">
+									肩周炎严重起来，胳膊都抬不起起来，请听平哥是怎么说的:如果能用脚敲键盘，就一定要用脚，毕竟
+									脚没有肩周炎这种说法
+								</p>
+								<span class="badge">100000</span>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+{% endblock %}
+
+	</body>
+</html>

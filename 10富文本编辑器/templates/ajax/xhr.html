@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="message"></div>
+    <ul id="news">
+
+    </ul>
+       <input type="text" name="name" value="">
+       <select name="newstype" id="newstype">
+           <option value="1">新闻</option>
+           <option value="2">专题</option>
+       </select>
+        <input type="button" name="btn" id="btn" value="提交">
+    <script>
+        btn = document.getElementById('btn')
+        message = document.getElementById("message")
+        ul = document.getElementById("news")
+        // xhr是XMLHttpRequest对象的简称
+        // 可以直接在页面内发起请求
+        // 从而可以在不刷新页面的情况加载数据
+        // 经常加载json格式数据
+        // 在js中，json格式数据使用JSON对象进行编解码
+        // JSON.parse('["网易","微专业","助你成才"]') - 解码
+        // JSON.stringify(["网易", "微专业", "助你成才"]) - 编码
+        // readyState == 4 请求结束
+        // status == 200 请求状态码， 200为正常响应
+        // responseText 服务器返回的数据，如果是json字符串格式，可以用
+        // JSON对象解析
+
+        xhr = new XMLHttpRequest()
+        xhr.onreadystatechange = function (ev) {
+            console.log(this.readyState)
+            console.log(this.status)
+
+            if (this.readyState==4 && this.status==200){
+                {#console.log("服务器返回:",this.responseText)#}
+                {#message.innerHTML = this.responseText#}
+                data = JSON.parse(this.responseText)
+                alert("ok")
+            }
+
+        }
+
+        btn.onclick = function(){
+            // 为xhr创建数据
+            message.innerHTML = "请等待...."
+            data = new FormData()
+            data.append('newstype',
+                document.getElementById('newstype').value)
+            // 第一个参数请求方法：get， post
+            // get方法，send不用传递数据，通过get的url传送数据
+            // post方法， send传递FormData对象数据
+            // 第二个参数是请求地址
+            // 第三个参数是同步还是异步，默认异步，同步状态下，必须等待响应结束
+            // 才能执行下一步js
+            xhr.open("post", '{{ url_for("test_form")}}', false)
+            xhr.send(data)
+            alert("start")
+        }
+
+    </script>
+</body>
+</html>

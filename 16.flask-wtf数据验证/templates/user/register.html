@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+		{% block content %}
+
+		<div class="container-fluid">
+			<div class="row">
+				
+				<div class="main col-md-12 col-lg-12 col-xs-12 col-sm-12" >
+
+						<h3>用户注册</h3>
+                     {% if message %}
+                        <div class="alert alert-info" role="alert">
+                                {{ message }}
+                        </div>
+                     {% endif %}
+						 <div class="body">
+							<form action="" method="post">
+
+                                 {% for field in form %}
+                                    {# 隐藏域元素不用显示label #}
+                                    {% if field.widget.input_type!="hidden" %}
+                                         <div class="form-group">
+                                            {{ field.label }}
+                                            {{ field }}
+                                        </div>
+                                    {% else %}
+                                        {{ field }}
+                                    {% endif %}
+								{% endfor %}
+							</form>
+						 </div>
+
+				</div>
+			</div>
+		</div>
+
+	{%  endblock %}
+{% block footer%}
+{#  {{ super() }}#}
+
+   <script src="{{ url_for("static", filename="ckeditor/ckeditor.js") }}"></script>
+{#     可以传入新的配置覆盖app.config配置，比如height#}
+    {{ ckeditor.config("intro",height=500) }}
+{% endblock %}

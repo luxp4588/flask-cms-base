@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+		{% block content %}
+            <div class="container-fluid">
+                <div class="row">
+
+                    <div class="main col-md-12 col-lg-12 col-xs-12 col-sm-12" >
+                        <article class="content">
+                            <h1>{{ article.title }}</h1>
+                             <div class="body">
+                                 ﻿<blockquote>
+                                    {{ article.intro }}
+                                  </blockquote>
+                                    {{ article.content }}
+                             </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+		{% endblock %}

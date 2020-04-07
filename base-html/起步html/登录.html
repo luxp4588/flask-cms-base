@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="./css/bootstrap.css"/>
+		<link rel="stylesheet" type="text/css" href="./css/bootstrap-theme.css"/>
+		<style type="text/css">
+			body{
+				padding-top: 52px;
+			}
+			.media a>img{
+				width: 120px;
+				
+			}
+			#left_menu>li{
+				width:100%;
+			}
+			.hot_articles .list-group{
+				box-shadow: 0 0 0;
+			}
+			.hot_articles .list-group-item{
+				border: 0;
+				padding-left: 0;
+			}
+			footer{
+				padding: 15px;
+				background: #333;
+				text-align: center;
+				color: #fff;
+			}
+			footer nav{
+				margin: auto;
+				width: 300px;
+			}
+			.main{
+				width: 500px;
+				margin: auto;
+			}
+		</style>
+	</head>
+	<body>
+	
+		<nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
+	
+			<!-- 手机屏幕显示 -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+				 data-target="#navmenu">
+					<span class="sr-only">展开导航</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+
+				</button>
+				<a href="" class="navbar-brand">平哥编程</a>
+			</div>
+			<div class="collapse navbar-collapse" id="navmenu">
+				<!-- 必须设置 navbar-nav-->
+				<ul class="nav navbar-nav" >
+					<li class="active"><a href="03.9首页.html">首页</a></li>
+							<!-- 必须设置dropdown -->
+					<li class="dropdown">
+								<a href="#" data-toggle="dropdown">
+									技术文章
+									<b class="caret"></b>
+								</a>
+								<ul class="dropdown-menu">
+									<li><a href="">Python编程</a></li>
+									<li><a href="">JavaScript编程</a></li>
+									<li><a href="">WEB开发技术</a></li>
+								</ul>
+							</li>
+					<li><a href="">生活随笔</a></li>
+					<li><a href="">关于我</a></li>
+				</ul>
+				<ul class="nav navbar-nav pull-right">
+					<li><a href="">登录</a></li>
+				</ul>
+			</div>
+		</nav> 
+
+		<!-- 分页导航 -->
+		
+		<div class="container">
+			<div class="row">
+				<div class="main " >
+					
+						<h3>登录</h3>
+						
+							<form action="" method="">
+						
+								<div class="form-group">
+									<label for="username">用户名:</label>
+									<input class="form-control"type="text" name="username" id="username" placeholder="请填写您的用户名" />
+								</div>
+								<div class="form-group">
+									<label for="password">密码:</label>
+									<input class="form-control"type="password" name="password" id="password" placeholder="设置一个密码"/>
+								</div>
+								<div class="form-group">
+									<input class="btn" type="submit" name="submit" id="btn1" value="立即登录" />
+								</div>
+							</form>
+				</div>
+			</div>
+		</div>
+		
+		<footer>
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-12">
+						网易微专业Python全栈课程&copy;2019版权所有
+					</div>
+				</div>
+			</div>
+			<nav >
+				<ul class="nav nav-pills   ">
+					<li><a href="">关于网易</a></li>
+					<li><a href="">网易微专业</a></li>
+					<li><a href="">关于平哥</a></li>
+				</ul>
+			</nav>
+		</footer>
+		<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+		<script type="text/javascript" src="./js/bootstrap.js"></script>
+	</body>
+</html>

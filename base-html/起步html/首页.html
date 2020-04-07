@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="./css/bootstrap.css"/>
+		<link rel="stylesheet" type="text/css" href="./css/bootstrap-theme.css"/>
+		<style type="text/css">
+			body{
+				padding-top: 52px;
+			}
+			.media a>img{
+				width: 120px;
+				
+			}
+			#left_menu>li{
+				width:100%;
+			}
+			.hot_articles .list-group{
+				box-shadow: 0 0 0;
+			}
+			.hot_articles .list-group-item{
+				border: 0;
+				padding-left: 0;
+			}
+			footer{
+				padding: 15px;
+				background: #333;
+				text-align: center;
+				color: #fff;
+			}
+			footer nav{
+				margin: auto;
+				width: 300px;
+			}
+			
+		</style>
+	</head>
+	<body>
+	
+		<nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
+	
+			<!-- 手机屏幕显示 -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+				 data-target="#navmenu">
+					<span class="sr-only">展开导航</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+
+				</button>
+				<a href="" class="navbar-brand">平哥编程</a>
+			</div>
+			<div class="collapse navbar-collapse" id="navmenu">
+				<!-- 必须设置 navbar-nav-->
+				<ul class="nav navbar-nav" >
+					<li class="active"><a href="">首页</a></li>
+							<!-- 必须设置dropdown -->
+					<li class="dropdown">
+								<a href="#" data-toggle="dropdown">
+									技术文章
+									<b class="caret"></b>
+								</a>
+								<ul class="dropdown-menu">
+									<li><a href="">Python编程</a></li>
+									<li><a href="">JavaScript编程</a></li>
+									<li><a href="">WEB开发技术</a></li>
+								</ul>
+							</li>
+					<li><a href="">生活随笔</a></li>
+					<li><a href="">关于我</a></li>
+				</ul>
+				<ul class="nav navbar-nav pull-right">
+					<li><a href="">登录</a></li>
+				</ul>
+			</div>
+		</nav> 
+		<!-- 面包屑导航 -->
+<ul class="breadcrumb">
+			<li><a href="">平哥编程</a></li>
+			<li><a href="">技术文章</a></li>
+			<li><a href="">Python编程</a></li>
+			<li class="active">异步模块</li>
+		</ul>
+		<!-- 分页导航 -->
+		
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-2 hidden-xs hidden-sm">
+					<ul class="nav nav-pills  " id="left_menu">
+						<li class="active"><a href="">标准模块</a></li>
+							
+						<li ><a href="#" data-toggle="dropdown">
+										socket编程
+									   
+								</a>
+									
+						</li>
+						<li><a href="">异步编程</a></li>
+						<li><a href="">并发编程</a></li>
+					</ul>
+				</div>
+				<div class="col-md-6">
+					<!-- 媒体列表 -->
+					<ul class="media-list">
+						<li class="media">
+							<a href="" class="pull-left">
+								<img src="img/1.jpeg"  class="media-object">
+							</a>
+							<div class="media-body">
+								<h4 class="media-heading">macbook pro使用体验</h4>
+								<div class="media">
+									<p>macbook的系统用起来有一种滑爽的感觉</p>
+									<p>2019-12-24 12:00:00</p>
+								</div>
+							</div>
+						</li>
+						
+						<!-- 前端在制作页面时会用一些静态列表数据 -->
+						<li class="media">
+							<a href="" class="pull-left">
+								<img src="img/1.jpeg"  class="media-object">
+							</a>
+							<div class="media-body">
+								<h4 class="media-heading">macbook pro使用体验</h4>
+								<div class="media">
+									<p>macbook的系统用起来有一种滑爽的感觉</p>
+									<p>2019-12-24 12:00:00</p>
+								</div>
+							</div>
+						</li>
+						<li class="media">
+							<a href="" class="pull-left">
+								<img src="img/1.jpeg"  class="media-object img-responsive">
+							</a>
+							<div class="media-body">
+								<h4 class="media-heading">macbook pro使用体验</h4>
+								<div class="media">
+									<p>macbook的系统用起来有一种滑爽的感觉</p>
+									<p>
+										<span class="pull-left">2019-12-24 12:00:00</span>
+										<span class="pull-right">1000万次</span>
+										</p>
+								</div>
+							</div>
+						</li>
+					</ul>
+					<!--  -->
+					<ul class="pagination">
+						<li><a href="">前一页</a></li>
+						<li class="disabled "><a href="#" >1</a></li>
+						<li class="active"><a href="" >2</a></li>
+						<li><a href="" >3</a></li>
+						<li><a href="">后一页</a></li>
+					</ul>
+				</div>
+				<div class="col-md-4">
+					<div class="hot_articles">
+						<h5>热门文章</h5>	
+						<ul class="list-group">
+							<li class="list-group-item">
+								如何扫描端口
+							    <span class="badge">100000</span>
+							</li>
+							<li class="list-group-item">
+								websocket服务器实现
+								<span class="badge">100000</span>
+								</li>
+							<li class="list-group-item">
+								什么是xss攻击
+								<span class="badge">100000</span>
+							</li>
+						</ul>
+					</div>
+					<div class="new_articles">
+						<h5>最新文章</h5>	
+						<ul class="list-group">
+							<li class="list-group-item">
+								如何治疗脱发
+							    <span class="badge">100000</span>
+							</li>
+							<li class="list-group-item">
+								颈椎家庭治疗法
+								<span class="badge">100000</span>
+								</li>
+							<li class="list-group-item">
+								<h6 class="list-group-item-heading">肩周炎到底能不能好</h6>
+								<p class="list-group-item-text">
+									肩周炎严重起来，胳膊都抬不起起来，请听平哥是怎么说的:如果能用脚敲键盘，就一定要用脚，毕竟
+									脚没有肩周炎这种说法
+								</p>
+								<span class="badge">100000</span>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<footer>
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-12">
+						网易微专业Python全栈课程&copy;2019版权所有
+					</div>
+				</div>
+			</div>
+			<nav >
+				<ul class="nav nav-pills   ">
+					<li><a href="">关于网易</a></li>
+					<li><a href="">网易微专业</a></li>
+					<li><a href="">关于平哥</a></li>
+				</ul>
+			</nav>
+		</footer>
+		<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+		<script type="text/javascript" src="./js/bootstrap.js"></script>
+	</body>
+</html>

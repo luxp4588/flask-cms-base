@@ -1,0 +1,95 @@
+{% extends "admin/admin_base.html" %}
+{% block style %}
+    [name='content']:{
+        width: 100%,
+        height: 500px;
+
+    }
+{% endblock %}
+		{% block content %}
+		
+		<div class="container-fluid">
+			<div class="row">
+				
+				<div class="main col-md-12 col-lg-12 col-xs-12 col-sm-12" >
+
+						<h3>文章发布</h3>
+                       <div class="alert alert-info" id="message" role="alert">
+
+                        </div>
+						 <div class="body">
+							<form action="" method="post">
+                            <div class="form-group">
+								<label for="cate">文章分类:</label>
+                                <select name="cate" id="cate" class="form-control">
+                                    {% for cate in cates %}
+                                        <option value="{{ cate.cate_id }}">{{ cate.cate_name }}</option>
+                                    {% endfor %}
+                                </select>
+							</div>
+							<div class="form-group">
+								<label for="name">标题:</label>
+								<input class="form-control"  type="text" name="title" id="title" value="" placeholder="文章标题">
+							</div>
+
+							<div class="form-group">
+                                <textarea name="intro" rows="5" cols="10" id="intro" class="form-control" ></textarea>
+							</div>
+
+                            <div class="form-group">
+                                <textarea name="content" id="content" rows="30" cols="10" class="form-control" ></textarea>
+							</div>
+							<div class="form-group">
+							<input class="btn" type="button" name="btn" id="btn1" value="发表文章" />
+							<input class="btn" type="reset" name="reset_btn" id="btn2" value="重设" />
+							</div>
+							</form>
+						 </div>
+
+				</div>
+			</div>
+		</div>
+            <script src="{{ url_for('static', filename="ckeditor/ckeditor.js") }}"></script>
+            <script>
+                CKEDITOR.replace( 'content',{
+                    filebrowserUploadUrl :'/upload/ckeditor',
+                    filebrowserBrowseUrl:'/upload/ckeditor/browser'
+
+                })
+            </script>
+            <script>
+                btn = document.getElementById("btn1")
+                btn.onclick = function (ev) {
+                    cate_id = $("#cate").val()
+                    title = $("#title").val()
+                    intro = $("#intro").val()
+                    content = CKEDITOR.instances["content"].getData()
+
+                    if (title == ""){
+                        $("#title").focus()
+                        return false
+                    }
+                    if (intro == ""){
+                        $("#intro").focus()
+                        return false
+                    }
+
+                    $.ajax({
+                         type:"post",
+                         data:{"cate":cate_id,
+                               "title":title,
+                               "intro":intro,
+                               "content":content
+                               },
+                         dataType:"json",
+                         success: function(data){
+                             $("#message").html(data.message)
+                             //表单重置，相当于点击重设按钮
+                             $("form")[0].reset()
+                             CKEDITOR.instances["content"].setData()
+                         }
+                    })
+
+                }
+            </script>
+	{%  endblock %}

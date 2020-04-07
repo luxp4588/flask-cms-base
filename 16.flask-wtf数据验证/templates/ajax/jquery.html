@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="/static/js/jquery-3.4.1.min.js"></script>
+</head>
+<body>
+     <div id="message"></div>
+    <ul id="news">
+
+    </ul>
+       <input type="text" name="name" value="">
+       <select name="newstype" id="newstype">
+           <option value="1">新闻</option>
+           <option value="2">专题</option>
+       </select>
+        <input type="button" name="btn" id="btn1" value="ajax提交">
+        <input type="button" name="btn" id="btn2" value="get提交">
+        <input type="button" name="btn" id="btn3" value="post提交">
+     <script>
+         btn1 = document.getElementById('btn1')
+         btn2 = document.getElementById('btn2')
+         btn3 = document.getElementById('btn3')
+         message = document.getElementById("message")
+         ul = document.getElementById("news")
+         // $.ajax参数对象
+         // type ：请求方式 get、post
+         // data ：提交数据
+         // dataType ：返回数据类型，text - 普通文本， json-json格式
+         btn1.onclick = function(){
+             $.ajax({
+                 type:"post",
+                 data:{"newstype":"1"},
+                 dataType: "json",
+                 success: function(data){
+                     for (i in data){
+                          ul.innerHTML += "<li>"+data[i]+"</li>"
+                     }
+                 }
+             })
+
+         }
+         // 加载一个页面到元素
+         {#$(".message").load("/form")#}
+         // get方式简写
+         btn2.onclick = function(){
+              $.get("/form", function (data) {
+                   $("#message").html(data)
+              })
+         }
+
+
+         // post方式简写
+         btn3.onclick = function(){
+             $.post("/form", {"newstype":"2"},function (data) {
+                for (i in data){
+                          ul.innerHTML += "<li>"+data[i]+"</li>"
+                     }
+             }, dataType="json")
+         }
+
+     </script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <progress max="100" value=0 id="progress" style=></progress>
+    <div id="message"></div>
+    <div id="image"></div>
+
+   <div class="form-group">
+    <input type="file" name="file" id="file" class="form-control"
+            multiple="multiple">
+    <input type="button" name="btn" value="上传" class="btn btn-primary">
+   </div>
+
+    <script src="/static/js/jquery-3.4.1.min.js"></script>
+    <script>
+        progress = $("#progress")
+        message  = $("#message")
+        image    = $("#image")
+        btn      = $(".btn")
+
+
+        btn.on("click",function(){
+
+            files = document.getElementById("file").files
+            data = new FormData()
+            for (i in files) {
+                data.append("file", files[i])
+            }
+
+            $.ajax({
+                url:"/upload/",
+                type:"post",
+                data:data,
+                processData: false,
+                contentType: false,
+                dataType:"json",
+                success: function(data){
+                     if (data.result=="success"){
+                         message.html("上传成功")
+                         console.log(data.filepath_list)
+                         for (i in data.filepath_list){
+                             img = $("<img />")
+                             img.attr("src",
+                                         data.filepath_list[i]
+                                       )
+                             image.append(img)
+                         }
+                     } else {
+                           message.html("上传失败："+data.errors)
+                         }
+                },
+                xhr: function(){
+                    xhr = $.ajaxSettings.xhr()
+                    xhr.upload.onloadstart = function(){
+                        message.html("开始上传...")
+                    }
+                    xhr.upload.onprogress=function(e){
+                        status = e.loaded/e.total*100
+                        progress.val(status)
+                    }
+                    return xhr
+
+                }
+            })
+        })
+
+
+    </script>
+{% endblock %}

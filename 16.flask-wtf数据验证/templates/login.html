@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+	
+	{% block content %}
+		
+		<div class="container-fluid">
+			<div class="row">
+				<div class="main col-md-12 col-lg-12 col-xs-12 col-sm-12" >
+
+						<h1>登录</h1>
+                            {% if message %}
+                                <div class="alert alert-info" role="alert">
+                                        {{ message }}
+                                </div>
+                            {% endif %}
+
+							<form action="" method="post">
+
+                                {% for field in form %}
+                                    {% if field.widget.input_type!="hidden" %}
+								<div class="form-group">
+									{{ field.label }}
+									{{ field }}
+								</div>
+                                    {% else %}
+                                      {{ field }}
+                                    {% endif %}
+								{% endfor %}
+							</form>
+						 </div>
+
+				</div>
+			</div>
+		</div>
+		{%  endblock %}
+	</body>
+</html>

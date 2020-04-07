@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% block style %}
+
+        input[type='number']{
+            width: 100px;
+        }
+        .btn{
+            margin-right: 30px;
+
+        }
+{% endblock %}
+{% block content %}
+
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-2 hidden-xs hidden-sm">
+					<ul class="nav nav-pills  " id="left_menu">
+						<li class="active"><a href="">标准模块</a></li>
+							
+						<li ><a href="#" data-toggle="dropdown">
+										socket编程
+									   
+								</a>
+									
+						</li>
+						<li><a href="">异步编程</a></li>
+						<li><a href="">并发编程</a></li>
+					</ul>
+				</div>
+				<div class="col-md-6">
+					<!-- 媒体列表 -->
+                    <h3>分类管理
+                        <small>
+                            <a href="{{ url_for("article_app.addCate") }}">
+                                添加分类
+                            </a>
+                        </small>
+                    </h3>
+
+
+					<table class="table table-bordered ">
+
+                        <tr>
+                            <th>分类id</th>
+                            <th>分类名</th>
+                            <th>分类顺序</th>
+                            <th>管理操作</th>
+                        </tr>
+                        {% for cate in cates %}
+                        <tr>
+                            <td>{{ cate.cate_id }}</td>
+                            <td>{{ cate.cate_name }}</td>
+                            <td>{{ cate.cate_order }}</td>
+                            <td>
+                                <a href="{{ url_for("article_app.editCate", cate_id=cate.cate_id) }}">修改</a>
+                                <a href="{{ url_for("article_app.deleteCate", cate_id=cate.cate_id) }}">删除</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+					<!--  -->
+					<ul class="pagination">
+                        {% for page in pageList %}
+                            {% if page!=None %}
+						<li><a href="{{ url_for("article_app.cateList", page=page) }}">{{ page }}</a></li>
+                            {% else %}
+                            <li><a href="#">...</a></li>
+                            {% endif %}
+						{% endfor %}
+					</ul>
+				</div>
+
+
+				</div>
+			</div>
+		</div>
+{% endblock %}
+
+	</body>
+</html>

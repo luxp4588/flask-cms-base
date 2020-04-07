@@ -1,0 +1,83 @@
+{% extends "admin/admin_base.html" %}
+{% block style %}
+
+        input[type='number']{
+            width: 100px;
+        }
+        .btn{
+            margin-right: 30px;
+
+        }
+{% endblock %}
+{% block content %}
+
+		<div class="container-fluid">
+			<div class="row">
+
+				<div class="col-md-12">
+					<!-- 媒体列表 -->
+                    <h3>分类管理
+                        <small>
+                            <a href="">
+                                添加分类
+                            </a>
+                        </small>
+                    </h3>
+
+
+					<table class="table table-bordered ">
+
+                        <tr>
+                            <th>分类id</th>
+                            <th>分类名</th>
+                            <th>分类顺序</th>
+                            <th>管理操作</th>
+                        </tr>
+                       
+                        <tr>
+                            <td> cate.cate_id </td>
+                            <td> cate.cate_name </td>
+                            <td> cate.cate_order </td>
+                            <td>
+                                <a href="">修改</a>
+                                <a href="">删除</a>
+                            </td>
+                        </tr>
+						<tr>
+						    <td> cate.cate_id </td>
+						    <td> cate.cate_name </td>
+						    <td> cate.cate_order </td>
+						    <td>
+						        <a href="">修改</a>
+						        <a href="">删除</a>
+						    </td>
+						</tr>
+						<tr>
+						    <td> cate.cate_id </td>
+						    <td> cate.cate_name </td>
+						    <td> cate.cate_order </td>
+						    <td>
+						        <a href="">修改</a>
+						        <a href="">删除</a>
+						    </td>
+						</tr>
+                     
+                    </table>
+					<!--  -->
+					<ul class="pagination">
+                        
+						<li><a href=""> page </a></li>
+						<li><a href=""> page </a></li>
+						<li><a href=""> page </a></li>
+                        
+					</ul>
+				</div>
+
+
+				</div>
+			</div>
+		</div>
+{% endblock %}
+
+	</body>
+</html>

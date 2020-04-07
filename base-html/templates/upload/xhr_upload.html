@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <progress max="100" value=0 id="progress" style=></progress>
+    <div id="message"></div>
+    <div id="image"></div>
+
+    <div class="form-group">
+    <input type="file" name="file" id="file" class="form-control"
+            multiple="multiple">
+    <input type="button" name="btn" value="上传" class="btn btn-primary">
+   </div>
+
+    <script>
+        progress = document.getElementById("progress")
+        message  = document.getElementById("message")
+        image    = document.getElementById("image")
+        btn      = document.querySelector(".btn")
+        xhr      = new XMLHttpRequest()
+        xhr.upload.onloadstart = function (ev) {
+               message.innerHTML = "开始上传"
+        }
+
+        xhr.upload.onprogress = function(ev){
+
+            progress.value = ev.loaded / ev.total *100
+        }
+
+        xhr.onreadystatechange = function(){
+            if (this.readyState==4 && this.status==200){
+                data = JSON.parse(this.responseText)
+                // 上传成功返回一个上传文件存放路径列表
+                if (data.result == "success"){
+                    message.innerHTML = "上传成功"
+                    for (i in data.filepath_list) {
+                        img = document.createElement("img")
+                        img.src = data.filepath_list[i]
+                        image.appendChild(img)
+                    }
+
+                } else {
+                    message.innerHTML = "上传失败:" + data.error
+                }
+            }
+        }
+
+        btn.onclick = function(){
+            // 第一张图片
+            //document.getElementById("file").files[0]
+            // 第二张图片
+            // document.getElementById("file").files[1]
+            files = document.getElementById("file").files
+            data = new FormData()
+            for (i in files){
+                data.append("file", files[i])
+            }
+
+            xhr.open("post","/upload/")
+            xhr.send(data)
+        }
+
+
+    </script>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+<!DOCTYPE html>
+<html>
+
+	<body>
+	
+	{% block content %}
+		
+		<div class="container-fluid">
+			<div class="row">
+				<div class="main col-md-12 col-lg-12 col-xs-12 col-sm-12" >
+					<article class="content">
+						<h1>登录</h1>
+						 <div class="body">
+							<form action="" method="">
+						
+								<div class="form-group">
+									<label for="username">用户名:</label>
+									<input class="form-control"type="text" name="username" id="username" placeholder="请填写您的用户名" />
+								</div>
+								<div class="form-group">
+									<label for="password">密码:</label>
+									<input class="form-control"type="password" name="password" id="password" placeholder="设置一个密码"/>
+								</div>
+								<div class="form-group">
+									<input class="btn" type="submit" name="submit" id="btn1" value="立即登录" />
+								</div>
+							</form>
+						 </div>
+					</article>
+				</div>
+			</div>
+		</div>
+		{%  endblock %}
+	</body>
+</html>
