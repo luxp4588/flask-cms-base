@@ -80,7 +80,7 @@ def ckeditor_upload():
         message['fileName'] = file_storage.filename
         # [1:]将.static/相对路径转为/static绝对路径
         message['url'] = file_path[1:]
-        message['loaded'] = "1"
+        message['uploaded'] = "1"
         return json.dumps(message)
 
 
